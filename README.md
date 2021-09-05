@@ -64,7 +64,7 @@ ENV['ember-swiper7'] = {
 
 ```javascript
 ENV['ember-swiper7'] = {
-  imports: ['a11y', 'pagination', 'navigation'], // only these modules
+  imports: ['A11y', 'Pagination', 'Navigation'], // only these modules
 };
 ```
 
