@@ -48,7 +48,7 @@ export default class SwiperComponent extends Component {
 
   @action
   _initializeOptions(element) {
-    import('swiper').then((module) => {
+    import('swiper').then((modules) => {
       const slideEvents = [
         'slideChange',
         'slideChangeTransitionStart',
@@ -78,17 +78,17 @@ export default class SwiperComponent extends Component {
         importedModules === '*' ||
         importedModules === ['*']
       ) {
-        Object.keys(module).forEach((key) => {
-          if (key !== 'default' && key !== 'Swiper') {
-            this._options.modules.push(module[key]);
+        Object.keys(modules).forEach((module) => {
+          if (module !== 'default' && module !== 'Swiper') {
+            this._options.modules.push(modules[module]);
           }
         });
       } else {
-        Object.keys(module).forEach((key) => {
-          if (key !== 'default' && key !== 'Swiper') {
-            importedModules.forEach((i) => {
-              if (module[key].name === i) {
-                this._options.modules.push(module[key]);
+        Object.keys(modules).forEach((module) => {
+          if (module !== 'default' && module !== 'Swiper') {
+            importedModules.forEach((importedModule) => {
+              if (module === importedModule) {
+                this._options.modules.push(modules[module]);
               }
             });
           }
@@ -97,7 +97,7 @@ export default class SwiperComponent extends Component {
 
       delete this._options.imports;
 
-      const Swiper = module.Swiper;
+      const Swiper = modules.Swiper;
 
       this.swiper = new Swiper(element, this._options);
 
