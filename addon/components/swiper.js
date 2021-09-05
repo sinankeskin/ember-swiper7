@@ -95,6 +95,8 @@ export default class SwiperComponent extends Component {
         });
       }
 
+      delete this._options.imports;
+
       const Swiper = module.Swiper;
 
       this.swiper = new Swiper(element, this._options);

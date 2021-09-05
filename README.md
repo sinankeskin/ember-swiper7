@@ -27,32 +27,34 @@ ENV['ember-swiper7'] = {
 
 You can import only modules you want.
 
+NOTICE: All module names are case-sensitive.
+
 Available module names:
 
-- a11y
-- autoplay
-- controller
-- effect-cards
-- effect-coverflow
-- effect-creative
-- effect-cube
-- effect-fade
-- effect-flip
-- free-mode
-- grid
-- hash-navigation
-- history
-- keyboard
-- lazy
-- manipulation
-- mousewheel
-- navigation
-- pagination
-- parallax
-- scrollbar
-- thumbs
-- virtual
-- zoom
+- A11y
+- Autoplay
+- Controller
+- EffectCards
+- EffectCoverflow
+- EffectCreative
+- EffectCube
+- EffectFade
+- EffectFlip
+- freeMode
+- Grid
+- HashNavigation
+- History
+- Keyboard
+- Lazy
+- Manipulation
+- Mousewheel
+- Navigation
+- Pagination
+- Parallax
+- Scrollbar
+- Thumb
+- Virtual
+- Zoom
 
 ```javascript
 ENV['ember-swiper7'] = {
