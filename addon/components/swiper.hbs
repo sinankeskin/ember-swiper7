@@ -3,13 +3,13 @@
 {{/if}}
 <div
   id={{this.elementId}}
-  class="swiper-container"
+  class='swiper'
   ...attributes
   {{did-insert this._initializeOptions}}
   {{did-update this._updateOptions this._componentOptions}}
   {{will-destroy this._destroyOptions}}
 >
-  <div class="swiper-wrapper">
+  <div class='swiper-wrapper'>
     {{yield (hash slide=(component 'swiper/slide'))}}
   </div>
   {{#if @navigation}}

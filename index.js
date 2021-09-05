@@ -5,7 +5,7 @@ module.exports = {
   options: {
     autoImport: {
       alias: {
-        swiper$: 'swiper/swiper.esm',
+        swiper$: 'swiper',
       },
     },
     babel: {

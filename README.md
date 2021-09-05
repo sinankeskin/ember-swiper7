@@ -1,6 +1,6 @@
 # ember-swiper7
 
-Ember addon for [Swiper](https://swiperjs.com/) slider v6 library.
+Ember addon for [Swiper](https://swiperjs.com/) slider v7 library.
 
 ```
 ember install ember-swiper7
@@ -32,14 +32,19 @@ Available module names:
 - a11y
 - autoplay
 - controller
+- effect-cards
 - effect-coverflow
+- effect-creative
 - effect-cube
 - effect-fade
 - effect-flip
+- free-mode
+- grid
 - hash-navigation
 - history
 - keyboard
 - lazy
+- manipulation
 - mousewheel
 - navigation
 - pagination

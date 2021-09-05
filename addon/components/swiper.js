@@ -48,76 +48,70 @@ export default class SwiperComponent extends Component {
 
   @action
   _initializeOptions(element) {
-    import('swiper')
-      .then((module) => {
-        const slideEvents = [
-          'slideChange',
-          'slideChangeTransitionStart',
-          'slideChangeTransitionEnd',
-          'slideNextTransitionStart',
-          'slideNextTransitionEnd',
-          'slidePrevTransitionStart',
-          'slidePrevTransitionEnd',
-        ];
+    import('swiper').then((module) => {
+      const slideEvents = [
+        'slideChange',
+        'slideChangeTransitionStart',
+        'slideChangeTransitionEnd',
+        'slideNextTransitionStart',
+        'slideNextTransitionEnd',
+        'slidePrevTransitionStart',
+        'slidePrevTransitionEnd',
+      ];
 
-        if (this._options.on) {
-          slideEvents.forEach((eventName) => {
-            if (
-              this._options.on[eventName] &&
-              typeof this._options.on[eventName] === 'function'
-            ) {
-              delete this._options.on[eventName];
-            }
-          });
-        }
+      if (this._options.on) {
+        slideEvents.forEach((eventName) => {
+          if (
+            this._options.on[eventName] &&
+            typeof this._options.on[eventName] === 'function'
+          ) {
+            delete this._options.on[eventName];
+          }
+        });
+      }
 
-        const modules = [];
-        const importedModules = this._config['imports'];
+      this._options.modules = [];
+      const importedModules = this._config['imports'];
 
-        if (
-          !importedModules ||
-          importedModules === '*' ||
-          importedModules === ['*']
-        ) {
-          Object.keys(module).forEach((m) => {
-            if (m !== 'Swiper') {
-              modules.push(module[m]);
-            }
-          });
-        } else {
-          Object.keys(module).forEach((m) => {
-            if (m !== 'Swiper') {
-              importedModules.forEach((i) => {
-                if (module[m].name === i) {
-                  modules.push(module[m]);
-                }
-              });
-            }
-          });
-        }
+      if (
+        !importedModules ||
+        importedModules === '*' ||
+        importedModules === ['*']
+      ) {
+        Object.keys(module).forEach((key) => {
+          if (key !== 'default' && key !== 'Swiper') {
+            this._options.modules.push(module[key]);
+          }
+        });
+      } else {
+        Object.keys(module).forEach((key) => {
+          if (key !== 'default' && key !== 'Swiper') {
+            importedModules.forEach((i) => {
+              if (module[key].name === i) {
+                this._options.modules.push(module[key]);
+              }
+            });
+          }
+        });
+      }
 
-        const Swiper = module.Swiper;
+      const Swiper = module.Swiper;
 
-        Swiper.use(modules);
+      this.swiper = new Swiper(element, this._options);
 
-        this.swiper = new Swiper(element, this._options);
-
-        if (this.args.on) {
-          slideEvents.forEach((eventName) => {
-            if (
-              this.args.on[eventName] &&
-              typeof this.args.on[eventName] === 'function'
-            ) {
-              this.swiper.on(eventName, () => {
-                this.args.on[eventName](this.swiper);
-              });
-            }
-          });
-        }
-      })
-      .catch((error) => {
-        console.error('Dynamic import failed. Reason:' + error);
-      });
+      if (this.args.on) {
+        slideEvents.forEach((eventName) => {
+          if (
+            this.args.on[eventName] &&
+            typeof this.args.on[eventName] === 'function'
+          ) {
+            this.swiper.on(eventName, () => {
+              this.args.on[eventName](this.swiper);
+            });
+          }
+        });
+      }
+    });
   }
 
   @action

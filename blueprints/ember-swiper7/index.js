@@ -41,7 +41,7 @@ module.exports = {
       fs.mkdirSync(outputDir);
     }
 
-    const folders = ['components'];
+    const folders = ['modules'];
 
     folders.forEach((folder) => {
       this.copyFolderSync(
