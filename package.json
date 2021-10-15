@@ -38,7 +38,7 @@
     "@glimmer/tracking": "^1.0.4",
     "ember-auto-import": "^2.2.0",
     "ember-cli-babel": "^7.26.6",
-    "ember-cli-htmlbars": "^5.7.1",
+    "ember-cli-htmlbars": "^6.0.0",
     "swiper": "^7.0.8",
     "tracked-toolbox": "^1.2.3",
     "webpack": "^5.58.1"
