@@ -2,16 +2,14 @@
 
 Ember addon for [Swiper](https://swiperjs.com/) slider v7 library.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
 * Ember.js v3.24 or above
 * Ember CLI v3.24 or above
-* Node.js v12 or above
+* Node.js v14 or above
 
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-swiper7
@@ -154,6 +152,7 @@ All slideXXX events returns swiper instance. That way you can reach all properti
 ## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
+
 
 ## License
 
