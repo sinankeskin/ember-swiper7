@@ -1,7 +1,6 @@
 import { tracked, cached } from '@glimmer/tracking';
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { assign } from '@ember/polyfills';
 import { getOwner } from '@ember/application';
 import { guidFor } from '@ember/object/internals';
 
@@ -23,7 +22,7 @@ export default class SwiperComponent extends Component {
   get _options() {
     const options = {};
 
-    assign(options, this._config, this._componentOptions);
+    Object.assign(options, this._config, this._componentOptions);
 
     return options;
   }
