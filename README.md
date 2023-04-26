@@ -49,7 +49,7 @@ Available module names:
 - EffectCube
 - EffectFade
 - EffectFlip
-- freeMode
+- FreeMode
 - Grid
 - HashNavigation
 - History
