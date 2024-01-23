@@ -15,10 +15,9 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
-    let hasSass =
-      !!app.registry.availablePlugins['ember-cli-sass'] ||
-      !!app.registry.availablePlugins['@csstools/postcss-sass'];
-    let hasLess = !!app.registry.availablePlugins['ember-cli-less'];
+    const addons = app.project?.addonPackages || app.registry?.availablePlugins;
+    const hasSass = !!addons['ember-cli-sass'];
+    const hasLess = !!addons['ember-cli-less'];
 
     if (!hasSass && !hasLess) {
       app.import('node_modules/swiper/swiper.min.css');
